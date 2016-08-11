@@ -8,26 +8,7 @@
     angular.module('tcc-angular').controller('ArquivoController', function ($timeout, $location) {
 
         var vm = this;
-        
-        vm.listarArquivos = listarArquivos;
-        vm.voltar = voltar;
-        
-        //funções
-        init();
-        
-        function init() {
-            
-        }
-        
-        function listarArquivos(){
-            $location.path('arquivos');
-        }
-        
-        function voltar(){
-            $location.path('inicio');
-        }
     });
-
 })();
 
 

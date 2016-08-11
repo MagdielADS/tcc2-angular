@@ -4,8 +4,18 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<div>
-    <p>
-        Menu
-    </p>
+<div id="geral" class="col-md-12 textBranco" style="background: blueviolet;" ng-controller="MenuController as vm">
+    <div class="col-md-12">
+        <div class="col-md-4">
+            <label class="devsite-doc-set-nav-tab"
+                ng-class="{'devsite-doc-set-nav-active' : vm.naveActive == 1}"
+                ng-click="vm.inicio()">Início</label>
+            <label class="devsite-doc-set-nav-tab"
+                ng-class="{'devsite-doc-set-nav-active' : vm.naveActive == 2}"
+                ng-click="vm.arquivos()">Arquivos</label>
+            <label class="devsite-doc-set-nav-tab"
+                ng-class="{'devsite-doc-set-nav-active' : vm.naveActive == 3}"
+                ng-click="vm.servicos()">Serviços</label>
+        </div>
+    </div>    
 </div>
