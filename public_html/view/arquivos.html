@@ -4,5 +4,74 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<div>
+<div class="col-md-6" style="border: 1px solid black" ng-controller="ArquivoController as vm">
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label for="inputNome" class="col-sm-2 control-label">Nome do Arquivo:</label>
+            <div class="col-sm-10">
+                <input type="text" ng-model="vm.arquivo.nome" class="form-control" id="inputNome" placeholder="Nome do Arquivo" >
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputExtensao" class="col-sm-2 control-label">Tipo do Arquivo:</label>
+            <div class="col-sm-10">
+                <select class="form-control" ng-model="vm.arquivo.extensao">
+                <option value="1">CSV</option>
+                <option value="2">XML</option>
+                <option value="3">JSON</option>
+              </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputTabulacao" class="col-sm-2 control-label">Caractere de Tabulação:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputTabulacao" ng-model="vm.arquivo.caractere" placeholder="Caractere de tabulacao">
+            </div>
+        </div>
+        <div >
+            <input type="file" file-model="vm.myFile"/>
+            <button ng-click="vm.uploadFile()">upload me</button>
+        </div>
+        
+        <div class="form-group">
+            <label for="inputBusca" class="col-sm-2 control-label">Coluna de Busca:</label>
+            <div class="col-sm-10">
+                <select class="form-control" ng-model="vm.arquivo.colunaBusca">
+                <option value="1">CSV</option>
+                <option value="2">XML</option>
+                <option value="3">JSON</option>
+              </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputLatitude" class="col-sm-2 control-label">Latitude:</label>
+            <div class="col-sm-10">
+                <select class="form-control" ng-model="vm.arquivo.latitude">
+                <option value="1">CSV</option>
+                <option value="2">XML</option>
+                <option value="3">JSON</option>
+              </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputLongitude" class="col-sm-2 control-label">Longitude:</label>
+            <div class="col-sm-10">
+                <select class="form-control" ng-model="vm.arquivo.logitude">
+                <option value="1">CSV</option>
+                <option value="2">XML</option>
+                <option value="3">JSON</option>
+              </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputLugar" class="col-sm-2 control-label">Referência de Lugar:</label>
+            <div class="col-sm-10">
+                <select class="form-control" ng-model="vm.arquivo.referenciaLugar">
+                <option value="1">CSV</option>
+                <option value="2">XML</option>
+                <option value="3">JSON</option>
+              </select>
+            </div>
+        </div>
+    </form>
 </div>

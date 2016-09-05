@@ -5,9 +5,18 @@
  */
 (function () {
     'user strict';
-    angular.module('tcc-angular').controller('ArquivoController', function ($timeout, $location) {
+    angular.module('tcc-angular').controller('ArquivoController', function ($timeout, $location, arquivoService) {
 
         var vm = this;
+        
+        vm.uploadFile = uploadFile;
+
+        function uploadFile(){
+            var file = vm.myFile;
+            console.log('file is ' );
+            console.dir(file);
+            arquivoService.uploadFileToUrl(file);
+        }
     });
 })();
 
