@@ -27,6 +27,7 @@ and open the template in the editor.
             <div class="col-sm-10">
                 <input type="text" class="form-control" id="inputTabulacao" ng-model="vm.arquivo.caractere" placeholder="Caractere de tabulacao">
             </div>
+            <label for="inputTabulacao" class="col-sm-10 control-label">{{vm.erroCaractere}}</label>
         </div>
         <div >
             <input type="file" file-model="vm.myFile"/>

@@ -13,21 +13,25 @@
             file.append('file', arquivo);
             
             console.log("FILE SERvice ", file);
-            
-//            $http.post("http://localhost:8080/tcc-services/rest/georef/upload", file);
-            
-            $http({
-                  method: 'POST',
-                  url: 'http://localhost:8080/tcc-services/rest/georef/upload',
-                  headers: { 'Content-Type': 'multipart/form-data'},
-                  data:  file
-                })
-                .success(function(data, status) {                       
-                    alert("Success ... " + status);
-                })
-                .error(function(data, status) {
-                    alert("Error ... " + status);
-                });
+                
+            return $http.post('http://localhost:8080/tcc-services/rest/georef/upload', file, {
+                    transformRequest: angular.identity,
+                    transformResponse: angular.identity,
+                    headers: {
+                    'Content-Type': 'multipart/form-data'
+                    }
+            });    
         };
+        
+        this.buscarColunasArquivo = function(caminho, caractere){
+            var obj = {};
+            obj.params = {
+                caminho:caminho, 
+                caractere: caractere
+            };
+            return $http.get("http://localhost:8080/tcc-services/rest/georef/colunas",obj);
+        };
+        
+        
     }]);
 })();
