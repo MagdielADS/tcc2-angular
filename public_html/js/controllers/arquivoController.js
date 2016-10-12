@@ -5,33 +5,31 @@
  */
 (function () {
     'user strict';
-    angular.module('tcc-angular').controller('ArquivoController', function ($timeout, $location, arquivoService,$rootScope) {
-
+    angular.module('tcc-angular').controller('ArquivoController', function ($timeout, $location, arquivoService) {
         var vm = this;
-        
-        vm.erroCaractere = '';
         vm.arquivo = {};
-
+        
         vm.uploadFile = function uploadFile(){
-            vm.erroCaractere = '';
             if( vm.arquivo.caractere ){
-                var file = vm.myFile;
-                console.log('file is ' );
-                console.dir(file);
-                arquivoService.uploadFileToUrl( file ).success( function( response ){
+                
+                arquivoService.uploadFileToUrl( vm.arquivo.upload, vm.arquivo.extensao ).success( function( response ){
                     if( response ){
-                        console.log("Resp ", response);
+                        console.log("Arquivo: ",response);
+                        
+                        //A PARTIR DAQUI SÓ FUNCIONA PRA CSV
+                        
                         arquivoService.buscarColunasArquivo( response, vm.arquivo.caractere ).success( function( resp ){
                             if(resp){
                                 console.log("COLUNAS ", resp);
+                                vm.colunas = resp;
                             }
                         });
                     }
                 });
             }else{
-                vm.erroCaractere = 'Necessário informar caractere de tabulação para upload.';
+                console.log("Falta caractere");
             }
-        }
+        };
     });
 })();
 

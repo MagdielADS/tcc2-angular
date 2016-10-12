@@ -16,6 +16,7 @@ and open the template in the editor.
             <label for="inputExtensao" class="col-sm-2 control-label">Tipo do Arquivo:</label>
             <div class="col-sm-10">
                 <select class="form-control" ng-model="vm.arquivo.extensao">
+                <option value="">Selecione</option>
                 <option value="1">CSV</option>
                 <option value="2">XML</option>
                 <option value="3">JSON</option>
@@ -30,47 +31,43 @@ and open the template in the editor.
             <label for="inputTabulacao" class="col-sm-10 control-label">{{vm.erroCaractere}}</label>
         </div>
         <div >
-            <input type="file" file-model="vm.myFile"/>
+            <input type="file" file-model="vm.arquivo.upload"/>
             <button ng-click="vm.uploadFile()">upload me</button>
         </div>
         
         <div class="form-group">
             <label for="inputBusca" class="col-sm-2 control-label">Coluna de Busca:</label>
             <div class="col-sm-10">
-                <select class="form-control" ng-model="vm.arquivo.colunaBusca">
-                <option value="1">CSV</option>
-                <option value="2">XML</option>
-                <option value="3">JSON</option>
+                <select class="form-control" ng-model="vm.arquivo.colunaBusca" 
+                        ng-options="item for item in vm.colunas">
+                <option value="">Selecione</option>
+                <option>
               </select>
             </div>
         </div>
         <div class="form-group">
             <label for="inputLatitude" class="col-sm-2 control-label">Latitude:</label>
             <div class="col-sm-10">
-                <select class="form-control" ng-model="vm.arquivo.latitude">
-                <option value="1">CSV</option>
-                <option value="2">XML</option>
-                <option value="3">JSON</option>
+                <select class="form-control" ng-model="vm.arquivo.latitude" ng-options="item for item in vm.colunas">
+                <option value="">Selecione</option>
               </select>
             </div>
         </div>
         <div class="form-group">
             <label for="inputLongitude" class="col-sm-2 control-label">Longitude:</label>
             <div class="col-sm-10">
-                <select class="form-control" ng-model="vm.arquivo.logitude">
-                <option value="1">CSV</option>
-                <option value="2">XML</option>
-                <option value="3">JSON</option>
+                <select class="form-control" ng-model="vm.arquivo.logitude"
+                        ng-options="item for item in vm.colunas">
+                <option value="">Selecione</option>
               </select>
             </div>
         </div>
         <div class="form-group">
             <label for="inputLugar" class="col-sm-2 control-label">Referência de Lugar:</label>
             <div class="col-sm-10">
-                <select class="form-control" ng-model="vm.arquivo.referenciaLugar">
-                <option value="1">CSV</option>
-                <option value="2">XML</option>
-                <option value="3">JSON</option>
+                <select class="form-control" ng-model="vm.arquivo.referenciaLugar" 
+                        ng-options="item for item in vm.colunas">
+                <option value="">Selecione</option>
               </select>
             </div>
         </div>

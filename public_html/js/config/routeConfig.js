@@ -5,7 +5,6 @@
  */
 angular.module('app-routes', [])
         .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
-            
             $urlRouterProvider.otherwise('/');
 
             $stateProvider
