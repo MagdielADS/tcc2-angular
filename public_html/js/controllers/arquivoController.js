@@ -5,9 +5,14 @@
  */
 (function () {
     'user strict';
-    angular.module('tcc-angular').controller('ArquivoController', function ($timeout, $location, arquivoService) {
+    angular.module('tcc-angular').controller('ArquivoController', function ($timeout, $location, arquivoService, mensagemService) {
         var vm = this;
         vm.arquivo = {};
+        vm.mensagens = [];
+        
+        function limparMensagens(){
+            vm.mensagens = [];
+        }
         
         vm.uploadFile = function uploadFile(){
             if( vm.arquivo.caractere ){
@@ -27,7 +32,8 @@
                     }
                 });
             }else{
-                console.log("Falta caractere");
+                limparMensagens();
+                vm.mensagens.push(mensagemService.getMensagemErro('Por favor informe o caractere de separação.'));
             }
         };
     });

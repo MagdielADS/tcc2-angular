@@ -4,40 +4,45 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<div class="col-md-6" style="border: 1px solid black" ng-controller="ArquivoController as vm">
+<div class="col-md-12" ng-controller="ArquivoController as vm" style="border: 1px solid black">
     <form class="form-horizontal">
+        <h2 class="text-center">Cadastro de Arquivo</h2>
+        <div class="mensagem" ng-repeat="mensagem in vm.mensagens">
+            <span class="{{mensagem.tipo}}">{{mensagem.texto}}</span>
+        </div>    
         <div class="form-group">
             <label for="inputNome" class="col-sm-2 control-label">Nome do Arquivo:</label>
-            <div class="col-sm-10">
-                <input type="text" ng-model="vm.arquivo.nome" class="form-control" id="inputNome" placeholder="Nome do Arquivo" >
+            <div class="col-sm-5">
+                <input type="text" ng-model="vm.arquivo.nome" class="form-control" id="inputNome" placeholder="Nome do Arquivo">
             </div>
         </div>
         <div class="form-group">
             <label for="inputExtensao" class="col-sm-2 control-label">Tipo do Arquivo:</label>
-            <div class="col-sm-10">
+            <div class="col-sm-5">
                 <select class="form-control" ng-model="vm.arquivo.extensao">
-                <option value="">Selecione</option>
-                <option value="1">CSV</option>
-                <option value="2">XML</option>
-                <option value="3">JSON</option>
+                    <option value="">Selecione</option>
+                    <option value="1">CSV</option>
+                    <option value="2">XML</option>
+                    <option value="3">JSON</option>
               </select>
             </div>
         </div>
         <div class="form-group">
             <label for="inputTabulacao" class="col-sm-2 control-label">Caractere de Tabulação:</label>
-            <div class="col-sm-10">
+            <div class="col-sm-5">
                 <input type="text" class="form-control" id="inputTabulacao" ng-model="vm.arquivo.caractere" placeholder="Caractere de tabulacao">
             </div>
             <label for="inputTabulacao" class="col-sm-10 control-label">{{vm.erroCaractere}}</label>
         </div>
-        <div >
-            <input type="file" file-model="vm.arquivo.upload"/>
-            <button ng-click="vm.uploadFile()">upload me</button>
+        <div class="form-group">
+            <label for="inputTabulacao" class="col-sm-2 control-label">Arquivo:</label>
+            <input type="file" file-model="vm.arquivo.upload" style="margin-left: 17.8%"/>
+            <button ng-click="vm.uploadFile()" style="margin-left: 1.1%">Enviar</button>
         </div>
         
         <div class="form-group">
             <label for="inputBusca" class="col-sm-2 control-label">Coluna de Busca:</label>
-            <div class="col-sm-10">
+            <div class="col-sm-5">
                 <select class="form-control" ng-model="vm.arquivo.colunaBusca" 
                         ng-options="item for item in vm.colunas">
                 <option value="">Selecione</option>
@@ -47,7 +52,7 @@ and open the template in the editor.
         </div>
         <div class="form-group">
             <label for="inputLatitude" class="col-sm-2 control-label">Latitude:</label>
-            <div class="col-sm-10">
+            <div class="col-sm-5">
                 <select class="form-control" ng-model="vm.arquivo.latitude" ng-options="item for item in vm.colunas">
                 <option value="">Selecione</option>
               </select>
@@ -55,7 +60,7 @@ and open the template in the editor.
         </div>
         <div class="form-group">
             <label for="inputLongitude" class="col-sm-2 control-label">Longitude:</label>
-            <div class="col-sm-10">
+            <div class="col-sm-5">
                 <select class="form-control" ng-model="vm.arquivo.logitude"
                         ng-options="item for item in vm.colunas">
                 <option value="">Selecione</option>
@@ -64,7 +69,7 @@ and open the template in the editor.
         </div>
         <div class="form-group">
             <label for="inputLugar" class="col-sm-2 control-label">Referência de Lugar:</label>
-            <div class="col-sm-10">
+            <div class="col-sm-5">
                 <select class="form-control" ng-model="vm.arquivo.referenciaLugar" 
                         ng-options="item for item in vm.colunas">
                 <option value="">Selecione</option>

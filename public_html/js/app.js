@@ -5,7 +5,6 @@
  */
 angular.module('tcc-angular', ['ui.router', 'ct.ui.router.extras.sticky', 'app-routes'])
         .run(function ($rootScope) {
-            $rootScope.mensagens = [];
 //            $rootScope.$on('$stateChangeStart', function (toState) {
 ////                console.log(toState);
 //            });
